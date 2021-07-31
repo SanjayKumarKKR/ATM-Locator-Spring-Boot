@@ -23,7 +23,8 @@ public class AtmLocatorApplication {
 
 
 	@Bean
-	public RestTemplate getRestTemplateForDefault() throws Exception {
+	@Profile("default")
+	public RestTemplate getRestTemplateForDefault() {
 		RestTemplate restTemplate =new RestTemplate();
 		return restTemplate;
 	}
