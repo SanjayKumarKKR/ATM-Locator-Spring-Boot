@@ -6,6 +6,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -15,6 +16,7 @@ import javax.net.ssl.SSLContext;
 import java.security.cert.CertificateException;
 
 @SpringBootApplication
+@EnableEurekaServer
 public class AtmLocatorApplication {
 
 	public static void main(String[] args) {
