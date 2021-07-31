@@ -11,7 +11,7 @@
 	<groupId>com.atmlocator</groupId>
 	<artifactId>ATM-Locator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>ATM-Locator</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

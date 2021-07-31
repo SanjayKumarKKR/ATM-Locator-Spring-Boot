@@ -25,4 +25,14 @@ public class ATMLocatorService {
         return filteredAtmLocations;
     }
 
+    public List<ATMLocation> getAtmLocationsByPostalCode(String postalCode) throws Exception {
+        postalCode = postalCode.replaceAll("%20"," ");
+        List<ATMLocation> atmLocations = atmDataPopulator.getData();
+        String finalPostalCode = postalCode;
+        List<ATMLocation> filteredAtmLocations = atmLocations.stream().filter(
+                atmLocation -> atmLocation.getAddress().getPostalcode().equals(finalPostalCode)
+        ).collect(Collectors.toList());
+        return filteredAtmLocations;
+    }
+
 }

@@ -28,6 +28,14 @@ public class AtmController {
         return responseObject;
     }
 
+    @RequestMapping(value = "/postalCode/{postalCode}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    ApiResponseObject getATMLocationByPostalCode(@PathVariable("postalCode") String postalCode) throws Exception {
+        ApiResponseObject<ATMLocation> responseObject= new ApiResponseObject<>();
+        responseObject.setList(atmLocatorService.getAtmLocationsByPostalCode(postalCode));
+        return responseObject;
+    }
+
 
 
 }
