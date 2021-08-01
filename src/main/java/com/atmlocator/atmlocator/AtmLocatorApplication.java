@@ -7,6 +7,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
@@ -19,8 +20,10 @@ import java.security.cert.CertificateException;
 @SpringBootApplication
 @EnableEurekaServer
 @EnableCircuitBreaker
+@RefreshScope
 public class AtmLocatorApplication {
 
+	@RefreshScope
 	public static void main(String[] args) {
 		SpringApplication.run(AtmLocatorApplication.class, args);
 	}
@@ -28,6 +31,7 @@ public class AtmLocatorApplication {
 
 	@Bean
 	@Profile("default")
+	@RefreshScope
 	public RestTemplate getRestTemplateForDefault() {
 		RestTemplate restTemplate =new RestTemplate();
 		return restTemplate;
@@ -35,6 +39,7 @@ public class AtmLocatorApplication {
 
 	@Bean
 	@Profile("security")
+	@RefreshScope
 	public RestTemplate getRestTemplateForSecurity() throws Exception {
 		TrustStrategy acceptingTrustStrategy;
 		acceptingTrustStrategy = new TrustStrategy() {

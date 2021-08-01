@@ -4,9 +4,11 @@ import com.atmlocator.atmlocator.model.ATMLocation;
 import com.atmlocator.atmlocator.model.ApiResponseObject;
 import com.atmlocator.atmlocator.service.ATMLocatorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+@RefreshScope
 @RestController
 public class AtmController {
     @Autowired
